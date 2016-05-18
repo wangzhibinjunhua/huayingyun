@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/measure_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="@dimen/line_height"
+        android:divider="@color/line_grey"></ListView>
+
+
+    <com.tentinet.healthy.widget.PageLoadIng
+        android:id="@+id/measure_load"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.tentinet.healthy.widget.PageLoadIng>
+
+
+</RelativeLayout>

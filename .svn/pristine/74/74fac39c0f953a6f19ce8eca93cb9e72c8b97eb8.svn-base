@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/register_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_left_right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/clucose_head_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            >
+
+            <lecho.lib.hellocharts.view.PieChartView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/txt_title_data1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:gravity="center"
+
+                android:text="111111"
+                android:textSize="@dimen/dp_18" />
+
+            <TextView
+                android:id="@+id/txt_title_data2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:gravity="center"
+                android:text="111111"
+                android:textSize="@dimen/dp_18" />
+
+            <TextView
+                android:id="@+id/txt_title_data3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:gravity="center"
+                android:text="111111"
+                android:textSize="@dimen/dp_18" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <ListView
+        android:id="@+id/data_list"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:divider="@color/register_bg"
+        android:dividerHeight="@dimen/margin_default_for_horizontal"
+        android:visibility="gone"></ListView>
+
+    <com.tentinet.healthy.widget.PageLoadIng
+        android:id="@+id/data_page_load"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"></com.tentinet.healthy.widget.PageLoadIng>
+</RelativeLayout>

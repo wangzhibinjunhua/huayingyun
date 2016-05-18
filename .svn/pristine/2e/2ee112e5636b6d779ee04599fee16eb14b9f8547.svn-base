@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.tentinet.healthy.view.TitleView
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/font_color_green_default"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_15"></View>
+
+                <com.tentinet.healthy.widget.CircleImageView
+                    android:id="@+id/img_portrait"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@mipmap/mine_picture"
+                    app:border_color="@color/background_gray"
+                    app:border_width="2dp" />
+
+                <TextView
+                    android:id="@+id/txt_nick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:padding="@dimen/padding_default"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_size_default" />
+
+                <TextView
+                    android:id="@+id/txt_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:padding="@dimen/padding_default"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_size_default" />
+
+                <TextView
+                    android:id="@+id/txt_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_default_for_horizontal"
+                    android:padding="@dimen/padding_default"
+                    android:text="@string/login"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_size_default" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_default_for_horizontal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_default" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/lin_mine_device"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_mine_device"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_default_for_horizontal"
+                        android:layout_marginRight="@dimen/dp_15"
+                        android:background="@null"
+                        android:drawableLeft="@mipmap/mine_device"
+                        android:drawablePadding="@dimen/padding_default"
+                        android:drawableRight="@mipmap/right_arrows"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/mine_device"
+                        android:textSize="@dimen/font_size_default"
+                        android:textAllCaps="false"
+
+                        />
+                </LinearLayout>
+
+                <View
+                    style="@style/line_horizontal"
+                    android:layout_marginLeft="@dimen/margin_default_for_horizontal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_mine_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_default_for_horizontal"
+                        android:layout_marginRight="@dimen/dp_15"
+                        android:background="@null"
+                        android:drawableLeft="@mipmap/mine_histroy"
+                        android:drawablePadding="@dimen/padding_default"
+                        android:drawableRight="@mipmap/right_arrows"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/mine_histroy"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/font_size_default" />
+                </LinearLayout>
+
+                <View
+                    style="@style/line_horizontal"
+                    android:layout_height="1dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_default_for_horizontal"
+                    android:background="@color/register_bg" />
+
+                <View
+                    style="@style/line_horizontal"
+                    android:layout_height="1dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_system_push"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_default_for_horizontal"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:background="@null"
+                    android:drawableLeft="@mipmap/mine_system_push"
+                    android:drawablePadding="@dimen/padding_default"
+                    android:drawableRight="@mipmap/mine_switch"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/system_push"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/font_size_default" />
+
+                <View
+                    style="@style/line_horizontal"
+                    android:layout_marginLeft="@dimen/margin_default_for_horizontal" />
+
+                <Button
+                    android:id="@+id/btn_about_us"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_default_for_horizontal"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:background="@null"
+                    android:drawableLeft="@mipmap/mine_about_as"
+                    android:drawablePadding="@dimen/padding_default"
+                    android:drawableRight="@mipmap/right_arrows"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/about_us"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/font_size_default" />
+
+                <View
+                    style="@style/line_horizontal"
+                    android:layout_marginLeft="@dimen/margin_default_for_horizontal" />
+
+                <Button
+                    android:id="@+id/btn_advice_feedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_default_for_horizontal"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:background="@null"
+                    android:drawableLeft="@mipmap/mine_advice_feedback"
+                    android:drawablePadding="@dimen/padding_default"
+                    android:drawableRight="@mipmap/right_arrows"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/advice_feedback"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/font_size_default" />
+
+                <View
+                    style="@style/line_horizontal"
+                    android:layout_marginLeft="@dimen/margin_default_for_horizontal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_check_version"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_default_for_horizontal"
+                        android:layout_marginRight="@dimen/dp_15"
+                        android:background="@null"
+                        android:drawableLeft="@mipmap/mine_system_update"
+                        android:drawablePadding="@dimen/padding_default"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/check_version"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/font_size_default" />
+                    <TextView
+                        android:id="@+id/txt_version_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/font_size_small"
+                        android:layout_marginRight="@dimen/dp_15"
+                        android:drawableRight="@mipmap/right_arrows"
+                        android:drawablePadding="@dimen/padding_default"
+                        />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/line_default" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_default_for_vertical"
+                android:background="@drawable/login_btn_selector"
+                android:text="@string/logout"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_size_big" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

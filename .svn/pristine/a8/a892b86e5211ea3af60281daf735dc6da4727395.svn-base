@@ -1,0 +1,65 @@
+<resources>
+    <!--标题栏高度-->
+    <dimen name="title_view_padding_top">0dp</dimen>
+    <!-- 默认外边距 -->
+    <dimen name="padding_default">5dp</dimen>
+    <!-- 横向默认外边距 -->
+    <dimen name="padding_default_for_horizontal">10dp</dimen>
+    <!-- 纵向默认外边距 -->
+    <dimen name="padding_default_for_vertical">5dp</dimen>
+    <!-- 默认内边距 -->
+    <dimen name="margin_default">5dp</dimen>
+    <!-- 横向默认内边距 -->
+    <dimen name="margin_default_for_horizontal">10dp</dimen>
+    <!-- 纵向默认内边距 -->
+    <dimen name="margin_default_for_vertical">5dp</dimen>
+    <!-- 默认字体大小 -->
+    <dimen name="font_size_default">16sp</dimen>
+    <!-- 大号字体大小 -->
+    <dimen name="font_size_small">14sp</dimen>
+    <dimen name="font_size_mini">11sp</dimen>
+    <!-- 小号字体大小 -->
+    <dimen name="font_size_big">18sp</dimen>
+    <!-- 等待框边距 -->
+    <dimen name="paddin_wait_dialog">30dp</dimen>
+    <!-- listview分割线高度   -->
+    <dimen name="listview_dividerHeight">1dp</dimen>
+
+    <dimen name="line_height">0.5dp</dimen>
+    <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_3">3dp</dimen>
+    <dimen name="dp_15">15dp</dimen>
+    <dimen name="dp_18">18dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+
+    <dimen name="dp_30">30dp</dimen>
+
+
+    <dimen name="dp_44">44dp</dimen>
+
+    <dimen name="dp_50">50dp</dimen>
+    <dimen name="dp_70">70dp</dimen>
+    <dimen name="dp_94">94dp</dimen>
+    <dimen name="dp_105">105dp</dimen>
+    <dimen name="dp_110">110dp</dimen>
+    <dimen name="dp_180">180dp</dimen>
+    <dimen name="datatab_radio_padding">8dp</dimen>
+    <!-- ==========mini间距========== -->
+    <dimen name="spacing_mini">3dp</dimen>
+    <!-- ==========小间距========== -->
+    <dimen name="spacing_small">5dp</dimen>
+    <!-- ==========默认间距========== -->
+    <dimen name="spacing_default">10dp</dimen>
+    <!-- ==========更大间距========== -->
+    <dimen name="spacing_more_big">30dp</dimen>
+    <!-- ==========更大间距========== -->
+    <dimen name="spacing_big_more">35dp</dimen>
+    <!-- ==========大间距========== -->
+    <dimen name="spacing_big">20dp</dimen>
+    <!-- ==========中间间距========== -->
+    <dimen name="spacing_middle">15dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+</resources>

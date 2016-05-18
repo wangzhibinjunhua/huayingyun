@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.tentinet.healthy.view.TitleView
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.tentinet.healthy.widget.pulltorefresh.PullToRefreshLayout
+        android:id="@+id/pulllayout_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/view_title">
+
+        <com.tentinet.healthy.widget.pulltorefresh.PullableListView
+            android:id="@+id/hometab_lv_parent_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/view_title"
+            android:cacheColorHint="@null"
+            android:divider="@null" />
+    </com.tentinet.healthy.widget.pulltorefresh.PullToRefreshLayout>
+
+    <com.tentinet.healthy.widget.PageLoadIng
+        android:id="@+id/parent_load"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.tentinet.healthy.widget.PageLoadIng>
+
+</RelativeLayout>

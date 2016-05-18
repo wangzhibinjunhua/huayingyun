@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string-array name="ecg_measureres">
+        <item>No irregularity found.</item>
+        <item>Suspected a little fast beat.</item>
+        <item>Suspected fast beat.</item>
+        <item>Suspected short run of fast beat.</item>
+        <item>Suspected a little slow beat.</item>
+        <item>Suspected slow beat.</item>
+        <item>Suspected occasional short beat interval.</item>
+        <item>Suspected irregular beat interval.</item>
+        <item>Suspected fast beat with short beat interval.</item>
+        <item>Suspected slow beat with short beat interval.</item>
+        <item>Suspected slow beat with irregular beat interval.</item>
+        <item>Waveform baseline wander.Measure again.</item>
+        <item>Suspected fast beat with baseline wander.</item>
+        <item>Suspected slow beat with baseline wander.</item>
+        <item>Suspected occasional short beat interval with baseline wander.</item>
+        <item>Suspected irregular beat interval with baseline wander.</item>
+        <item>Poor signal, Measure again.</item>
+        <item>The results of the analysis error</item>
+    </string-array>
+    <declare-styleable name="PullToRefreshListView">
+        <attr name="android:dividerHeight" />
+        <attr name="android:divider" />
+    </declare-styleable>
+
+</resources>

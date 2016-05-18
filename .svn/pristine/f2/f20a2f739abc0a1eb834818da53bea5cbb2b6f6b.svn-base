@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.tentinet.healthy.view.TitleView
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.tentinet.healthy.widget.pulltorefresh.PullToRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/view_title"
+        android:id="@+id/pulllayout_news"
+        >
+
+        <com.tentinet.healthy.widget.pulltorefresh.PullableListView
+            android:id="@+id/list_news"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/view_title"
+            android:cacheColorHint="@null"
+            android:divider="@null"
+            />
+    </com.tentinet.healthy.widget.pulltorefresh.PullToRefreshLayout>
+
+    <com.tentinet.healthy.widget.PageLoadIng
+        android:id="@+id/tab_news_load"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.tentinet.healthy.widget.PageLoadIng>
+</RelativeLayout>

@@ -1,0 +1,226 @@
+package com.tentinet.healthy.activity;
+
+import android.os.Handler;
+import android.os.Message;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
+import com.creative.ecg.base.BaseDate;
+import com.creative.ecg.ecg.StatusMsg;
+import com.tentinet.healthy.R;
+import com.tentinet.healthy.ecg.BackGround;
+import com.tentinet.healthy.ecg.DrawThreadPC80B;
+import com.tentinet.healthy.ecg.StaticReceive;
+import com.tentinet.healthy.interf.TApplication;
+import com.tentinet.healthy.util.LogUtil;
+import com.tentinet.healthy.view.TitleView;
+
+public class MeasureInfoActivity extends BaseActivity {
+
+    /**
+     * PC80B绘图的View
+     */
+    private DrawThreadPC80B drawRunable;
+
+    private BackGround drawBG;
+
+
+    /**
+     * 绘图线程
+     */
+    private Thread drawThread;
+
+    private TextView tv_Gain, tv_HR, tv_MSG, tv_Result;
+
+
+    private TitleView titleView;
+    /**
+     * 心电测量结果
+     */
+    private String[] measureResult;
+
+    /**
+     * 当前数据传输模式
+     */
+    private int nTransMode = 0;
+
+    private String blooding = "";
+
+    @Override
+    protected void getData() {
+        Bundle bundle = getIntent().getExtras();
+        if (bundle!=null) {
+            blooding = bundle.getString("blooding");
+        }
+    }
+
+    @Override
+    protected int setContent() {
+        return R.layout.activity_measure_info;
+    }
+
+    @Override
+    protected void init() {
+        measureResult = getResources().getStringArray(R.array.ecg_measureres);
+        tv_MSG = (TextView) findViewById(R.id.main_pc80B_MSG);
+        titleView = (TitleView) findViewById(R.id.measure_info_title);
+        //  tv_Gain = (TextView) findViewById(R.id.main_pc80B_title_gain);
+        //  tv_HR = (TextView) findViewById(R.id.main_pc80B_title_hr);
+        titleView.setBackImageButton(R.mipmap.icon_back_white);
+        drawRunable = (DrawThreadPC80B) findViewById(R.id.main_pc80B_view_draw);
+        drawBG = (BackGround) findViewById(R.id.main_pc80B_view_bg);
+        drawRunable.setmHandler(mHandler);
+    }
+
+    @Override
+    protected void registerEvent() {
+
+    }
+
+
+    private Handler mHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case StaticReceive.MSG_DATA_ECG_STATUS_CH: {
+                    switch (msg.arg1) {
+                        case 5: {// 实时测量波形
+                            if (drawRunable.isPause()) {
+                                drawRunable.Continue();
+                            }
+                            Bundle data = msg.getData();
+                            if (data.getBoolean("bLeadoff")) {
+                                setMSG(getResources().getString(
+                                        R.string.measure_lead_off));
+                            } else {
+                                setMSG(" ");
+                            }
+                            data.getInt("nTransMode");
+                            //    setHR(data.getInt("nHR"));
+                            //  setGain(data.getInt("nGain"));
+                        }
+                        break;
+                        case 6: {// 测量结果
+                            Bundle data = msg.getData();
+                            nTransMode = data.getInt("nTransMode");
+                            if (nTransMode == StatusMsg.TRANSMIT_MODE_QUICK) {
+                                titleView.setTitle(measureResult[data.getInt("nResult")]);
+                                //  setMSG(measureResult[data.getInt("nResult")]);
+                            } else {
+                                setMSG("");
+                            }
+                            //  drawRunable.Pause();
+                            //     drawRunable.cleanWaveData();
+                            //   drawRunable.Pause();
+                            //    setGain(0);
+                            //  setHR(data.getInt("nHR"));
+                            //setSmooth(false);
+                        }
+                        break;
+                        case 7: {// 传输设置
+                            int nSmoothingMode = msg.arg2;// 滤波模式
+                            nTransMode = (Integer) msg.obj;// 传输模式
+                            if (nTransMode == StatusMsg.TRANSMIT_MODE_FILE) {
+                                setMSG(getResources().getString(
+                                        R.string.measure_ecg_file_ing));
+                            } else if (nTransMode == StatusMsg.TRANSMIT_MODE_CONTINUOUS) {
+                                setMSG("");
+                                //setSmooth(nSmoothingMode == StatusMsg.SMOOTHMODE_ENHANCE);
+                            }
+                        }
+                        break;
+                    }
+                }
+                break;
+                case StaticReceive.MSG_DATA_PULSE: {
+                    //  showPulse(true);
+                }
+                break;
+
+            }
+        }
+
+    };
+
+    private void setMSG(String msg) {
+        setTVtext(tv_MSG, msg);
+    }
+
+    /**
+     * 设置TextView显示的内容
+     */
+    private void setTVtext(TextView tv, String msg) {
+        if (tv != null) {
+            if (!tv.isShown()) {
+                tv.setVisibility(View.VISIBLE);
+            }
+            if (msg != null && !msg.equals("")) {
+                if (msg.equals("0")) {
+                    tv.setText(getResources().getString(
+                            R.string.const_data_nodata));
+                } else {
+                    tv.setText(msg);
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (drawThread == null) {
+            drawThread = new Thread(drawRunable, "DrawPC80BThread");
+            //     drawThread
+            drawThread.start();
+        }
+        if (drawRunable.isPause()) {
+            drawRunable.Continue();
+        }
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                BaseDate.ECGData data = new BaseDate.ECGData();
+                StaticReceive.DRAWDATA.clear();
+                boolean isEnd = false;
+                // StaticReceive.DRAWDATA.
+                try {
+                    //  Thread.sleep(1000);
+                    String tmp =blooding;
+                    String[] arr = tmp.split(",");
+                    for (int i = 0; i < arr.length; i++) {
+                        data.data.add(new BaseDate.Wave(Integer.parseInt(arr[i]), 0));
+                    }
+                    StaticReceive.DRAWDATA.addAll(data.data);
+                    Thread.sleep(500);
+                    Message msg = mHandler.obtainMessage();
+                    msg.what = StaticReceive.MSG_DATA_ECG_STATUS_CH;
+                    msg.arg1 = 6;
+                    Bundle bundle = new Bundle();
+                    nTransMode = 2;
+                    bundle.putInt("nTransMode", nTransMode);
+                    bundle.putInt("nResult", 1);
+                    msg.setData(bundle);
+                    mHandler.sendMessage(msg);
+
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }).start();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        drawRunable.Pause();
+    }
+}
