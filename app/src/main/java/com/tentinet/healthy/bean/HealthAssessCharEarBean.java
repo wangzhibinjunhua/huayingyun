@@ -15,30 +15,7 @@ import java.util.Comparator;
  * Date 2016/5/10 17:50
  * Copyright Copyright (c)2016 Shenzhen Tentinet Technology Co., Ltd. Inc. All rights reserved.
  */
-public class HealthAssessCharBean extends BaseBean implements Comparator<HealthAssessCharBean> {
-    public String getHighPressure() {
-        return highPressure;
-    }
-
-    public void setHighPressure(String highPressure) {
-        this.highPressure = highPressure;
-    }
-
-    public String getLowPressure() {
-        return lowPressure;
-    }
-
-    public void setLowPressure(String lowPressure) {
-        this.lowPressure = lowPressure;
-    }
-
-    public String getHeartRate() {
-        return heartRate;
-    }
-
-    public void setHeartRate(String heartRate) {
-        this.heartRate = heartRate;
-    }
+public class HealthAssessCharEarBean extends BaseBean implements Comparator<HealthAssessCharEarBean> {
 
     public String getCreatetime() {
         return createtime;
@@ -48,22 +25,7 @@ public class HealthAssessCharBean extends BaseBean implements Comparator<HealthA
         this.createtime = createtime;
     }
 
-    /**
-     * 高压
-     */
-    private String highPressure;
-    /**
-     * 低压
-     */
-    private String lowPressure;
 
-    /**
-     * 心率
-     */
-    private String heartRate;
-    /**
-     * 时间
-     */
 
     private String createtime;
 
@@ -93,9 +55,6 @@ public class HealthAssessCharBean extends BaseBean implements Comparator<HealthA
     protected void setParams(JSONObject json) {
         try {
             setCreatetime(json.getString("createtime"));
-            setHeartRate(json.getString("heartRate"));
-            setHighPressure(json.getString("highPressure"));
-            setLowPressure(json.getString("lowPressure"));
             setData_id(json.getString("data_id"));
             setEarTemperature(json.getString("earTemperature"));
         } catch (JSONException e) {
@@ -106,7 +65,7 @@ public class HealthAssessCharBean extends BaseBean implements Comparator<HealthA
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
-    public int compare(HealthAssessCharBean lhs, HealthAssessCharBean rhs) {
+    public int compare(HealthAssessCharEarBean lhs, HealthAssessCharEarBean rhs) {
         return Integer.compare(Integer.parseInt(lhs.getData_id()),Integer.parseInt(rhs.getData_id())) ;
     }
 }

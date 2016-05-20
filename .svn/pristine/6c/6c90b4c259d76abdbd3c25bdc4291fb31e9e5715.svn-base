@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/register_bg"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/clucose_head_one"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_clucose_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_common_selector"
+                    android:gravity="center"
+                    android:text="日期"
+
+                    />
+
+                <TextView
+                    android:id="@+id/txt_clucose_empt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_common_selector"
+                    android:gravity="center"
+                    android:text="时段"
+
+                    />
+
+                <TextView
+                    android:id="@+id/txt_clucose_bre_after"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_common_selector"
+                    android:gravity="center"
+                    android:text="早餐"
+
+                    />
+
+                <TextView
+                    android:id="@+id/txt_clucose_lunch_front"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_common_selector"
+                    android:gravity="center"
+                    android:text="早餐"
+
+                    />
+
+                <TextView
+                    android:id="@+id/txt_clucose_lunch_after"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_common_selector"
+                    android:gravity="center"
+                    android:text="早餐"
+
+                    />
+
+                <TextView
+                    android:id="@+id/txt_clucose_dinner_front"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_common_selector"
+                    android:gravity="center"
+                    android:text="早餐"
+
+                    />
+
+                <TextView
+                    android:id="@+id/txt_clucose_dinner_after"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_common_selector"
+                    android:gravity="center"
+                    android:text="早餐"
+
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/background_common_selector"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txt_clucose_sleep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/padding_default_for_horizontal"
+                android:layout_marginRight="@dimen/padding_default_for_horizontal"
+                android:gravity="right"
+                android:text="睡前" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
