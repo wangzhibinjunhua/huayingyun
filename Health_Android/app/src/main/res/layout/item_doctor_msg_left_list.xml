@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/spacing_default"
+    android:paddingRight="@dimen/spacing_default"
+    android:paddingTop="@dimen/spacing_default">
+
+    <TextView
+        android:id="@+id/txt_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/padding_default_for_horizontal"
+        android:text="11111" />
+
+    <com.tentinet.healthy.widget.CircleImageView
+        android:id="@+id/img_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/txt_date"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/mine_picture"
+        app:border_color="@color/background_gray"
+        app:border_width="0dp" />
+
+    <TextView
+        android:id="@+id/txt_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_date"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/padding_default"
+        android:layout_toRightOf="@id/img_image"
+        android:gravity="left|center"
+        android:lineSpacingMultiplier="1.2"
+        android:text="111111111111"
+        android:textScaleX="1.1"
+        android:textSize="@dimen/font_size_default"
+        />
+</RelativeLayout>

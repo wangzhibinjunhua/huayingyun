@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/register_bg"
+    >
+
+    <com.tentinet.healthy.view.TitleView
+        android:id="@+id/hometab_title_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <GridView
+        android:id="@+id/tab_home_giv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/hometab_title_main"
+        android:numColumns="2"></GridView>
+
+
+    <RelativeLayout
+        android:id="@+id/hometab_rlayout_main_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/hometab_title_main"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:id="@+id/hometab_rl_no_device"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_110"
+                android:src="@mipmap/non_device" />
+
+            <Button
+                android:id="@+id/hometab_btn_bind_device"
+                android:layout_width="@dimen/dp_180"
+                android:layout_height="@dimen/dp_44"
+                android:layout_below="@id/iv_back"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/spacing_more_big"
+                android:background="@drawable/shape_radius_button"
+                android:text="@string/bind_device"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_size_big" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hometab_btn_bind_device"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:text="@string/hometab_hint" />
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/hometab_lv_device_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</RelativeLayout>

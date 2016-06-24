@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/font_color_green_default" >
+
+        <TextView
+            android:id="@+id/main_pc80B_title_title"
+            style="@style/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="心电测量" />
+
+        <TextView
+            android:id="@+id/main_pc80B_title_gain"
+            style="@style/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/main_pc80B_title_title" />
+
+        <TextView
+            android:id="@+id/main_pc80B_title_hr"
+            style="@style/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/main_pc80B_title_gain"
+            android:text="HR=--" />
+
+        <ImageView
+            android:id="@+id/main_pc80B_title_battery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/battery_3"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/main_pc80B_title_smooth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/main_pc80B_title_battery"
+            android:src="@mipmap/smooth"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/main_pc80B_title_pulse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/main_pc80B_title_smooth"
+            android:src="@mipmap/mainheart_ok"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.tentinet.healthy.ecg.BackGround
+            android:id="@+id/main_pc80B_view_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/main_pc80B_MSG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/font_color_default"
+            android:textSize="24sp" />
+
+        <com.tentinet.healthy.ecg.DrawThreadPC80B
+            android:id="@+id/main_pc80B_view_draw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+</LinearLayout>

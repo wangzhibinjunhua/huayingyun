@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.tentinet.healthy.view.TitleView
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ListView
+        android:layout_below="@id/view_title"
+        android:id="@+id/list_mine_device"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null" />
+
+    <com.tentinet.healthy.widget.PageLoadIng
+        android:id="@+id/mine_device_load"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.tentinet.healthy.widget.PageLoadIng>
+</RelativeLayout>

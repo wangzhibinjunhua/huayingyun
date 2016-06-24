@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/line_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:background="@color/line_default"
+            />
+
+        <RadioGroup
+            android:id="@+id/group_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_home"
+                style="@style/tab_style_default"
+                android:checked="true"
+                android:drawablePadding="@dimen/spacing_mini"
+                android:drawableTop="@drawable/home_buttom_home_selector"
+                android:text="@string/home"
+                android:textColor="@color/font_green_grey_selector"
+                android:textSize="@dimen/font_size_mini"
+                android:background="@null"
+                />
+
+            <RadioButton
+                android:id="@+id/radio_data"
+                style="@style/tab_style_default"
+                android:drawablePadding="@dimen/spacing_mini"
+                android:drawableTop="@drawable/home_buttom_data_selector"
+                android:text="@string/data"
+                android:textColor="@color/font_green_grey_selector"
+                android:background="@null"
+                android:textSize="@dimen/font_size_mini" />
+
+            <RadioButton
+                android:id="@+id/radio_news"
+                style="@style/tab_style_default"
+                android:drawablePadding="@dimen/spacing_mini"
+                android:drawableTop="@drawable/home_buttom_info_selector"
+                android:text="@string/news"
+                android:textColor="@color/font_green_grey_selector"
+                android:background="@null"
+                android:textSize="@dimen/font_size_mini" />
+
+            <RadioButton
+                android:id="@+id/radio_mine"
+                style="@style/tab_style_default"
+                android:drawablePadding="@dimen/spacing_mini"
+                android:drawableTop="@drawable/home_buttom_mine_selector"
+                android:text="@string/mine"
+                android:textColor="@color/font_green_grey_selector"
+                android:background="@null"
+                android:textSize="@dimen/font_size_mini" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/line_group"
+        android:background="@color/register_bg" />
+
+</RelativeLayout>

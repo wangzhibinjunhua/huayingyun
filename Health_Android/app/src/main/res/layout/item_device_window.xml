@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/register_bg"
+    android:orientation="vertical">
+
+    <com.tentinet.healthy.view.TitleView
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <GridView
+        android:id="@+id/device_window_giv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="1.0px"
+        android:numColumns="2"
+        android:smoothScrollbar="true"
+        android:soundEffectsEnabled="true"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="1.0px"></GridView>
+</LinearLayout>
