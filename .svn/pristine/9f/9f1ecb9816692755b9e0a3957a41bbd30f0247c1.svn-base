@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/register_bg"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/font_color_green_default">
+        <TextView
+            android:id="@+id/txt_dialog_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/dp_18"
+            android:text="@string/check_hightemp_msg"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_20" />
+
+    </LinearLayout>
+    <NumberPicker
+        android:id="@+id/np_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></NumberPicker>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:background="@drawable/default_btn_selector"
+            android:text="@string/ok"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_size_big"
+
+            />
+
+
+    </LinearLayout>
+</LinearLayout>

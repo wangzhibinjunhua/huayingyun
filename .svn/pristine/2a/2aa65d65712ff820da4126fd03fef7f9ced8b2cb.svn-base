@@ -1,0 +1,546 @@
+package com.tentinet.healthy.biz;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.view.View;
+
+import com.tentinet.healthy.R;
+import com.tentinet.healthy.activity.LoginActivity;
+import com.tentinet.healthy.activity.MainActivity;
+import com.tentinet.healthy.bean.BaseBean;
+import com.tentinet.healthy.bean.ResponseBean;
+import com.tentinet.healthy.interf.TApplication;
+import com.tentinet.healthy.util.CustomDialog;
+import com.tentinet.healthy.util.EncryptionUtil;
+import com.tentinet.healthy.util.IntentUtil;
+import com.tentinet.healthy.util.LogUtil;
+import com.tentinet.healthy.util.NetUtil;
+import com.tentinet.healthy.util.ToastUtil;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.concurrent.TimeoutException;
+
+/**
+ * 业务逻辑基类.
+ *
+ * @author paladin.
+ */
+public class BaseBiz {
+
+    protected NetUtil net = new NetUtil();
+
+    /**
+     * 获取请求系统级参数.
+     *
+     * @return 系统级参数.
+     */
+    protected HashMap<String, String> getSystemParams(String method) {
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put(KEY_APP_KEY, APP_KEY);
+        params.put(KEY_VERSION, VERSION);
+        params.put(KEY_METHOD, method);
+        return params;
+    }
+
+    /**
+     * 签名.
+     *
+     * @param method 方法地址.
+     * @return
+     */
+    protected String sign(String method) {
+        String sign = KEY_APP_KEY + "=" + APP_KEY + "&" + KEY_METHOD + "=" + method + "&" + KEY_VERSION + "=" + VERSION + "&" + KEY_SECRET + "=" + SECRET;
+        return EncryptionUtil.md5Encrypt(sign);
+    }
+
+    /**
+     * 登录签名.
+     *
+     * @param method 方法地址.
+     * @param token  用户token.
+     * @return
+     */
+    protected String sign(String method, String token) {
+        String sign = KEY_APP_KEY + "=" + APP_KEY + "&" + KEY_METHOD + "=" + method + "&" + KEY_VERSION + "=" + VERSION + "&" + KEY_SECRET + "=" +
+                SECRET + "&" + KEY_TOKEN + "=" + token;
+        return EncryptionUtil.md5Encrypt(sign);
+    }
+
+    /**
+     * post请求.
+     *
+     * @return 返回服务器响应信息或本地错误信息.
+     * @author paladin.
+     * @date 2016/3/17 17:50
+     */
+    protected ResponseBean sendPost(HashMap<String, String> params) {
+        LogUtil.logDebugMessage("address = " + SERVER_API + "; params = " + params.toString() + ";");
+        ResponseBean response = null;
+        String result = null;
+        try {
+            result = net.sendPost(SERVER_API, TIME_OUT, params);
+            LogUtil.logDebugMessage(result);
+            response = (ResponseBean) BaseBean.parsingJsonObject(new JSONObject(result), ResponseBean.class);
+        } catch (IOException e) {
+            if (null == response) {
+                response = new ResponseBean();
+            }
+            response.setStatus(STATUS_IO_EXCEPTION);
+            response.setInfo(TApplication.CONTEXT.getString(R.string.error_io_exception));
+        } catch (TimeoutException e) {
+            if (null == response) {
+                response = new ResponseBean();
+            }
+            response.setStatus(STATUS_TIME_OUT);
+            response.setInfo(TApplication.CONTEXT.getString(R.string.error_time_out));
+        } catch (JSONException e) {
+            if (null == response) {
+                response = new ResponseBean();
+                response.setStatus(STATUS_IO_EXCEPTION);
+                response.setInfo(TApplication.CONTEXT.getString(R.string.error_io_exception));
+            }
+        }
+        return response;
+    }
+
+    /**
+     * 提示响应信息内容.
+     *
+     * @param response      服务器响应信息.
+     * @param context       上下文环境.
+     * @param successIsShow 成功信息是否提示.
+     * @return
+     */
+    public static int processResponse(ResponseBean response, Context context, boolean successIsShow) {
+        switch (response.getStatus()) {
+            case STATUS_SUCCESS:
+                if (successIsShow) {
+                    ToastUtil.showShortToast(context, context.getString(R.string.succeed_msg));
+                }
+                break;
+            case STATUS_USER_CODE:
+            case STATUS_USER_LOGIN_PHONE_EMPTY:
+            case STATUS_FRIEND_ADD_PHONE_EMPTY:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_USER_CODE));
+                break;
+            case STATUS_USER_SUBMIT_CODE:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_USER_SUBMIT_CODE));
+                break;
+            case STATUS_USER_REGISTER:
+            case STATUS_USER_LOGIN_PWD_EMPTY:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_USER_REGISTER));
+                break;
+            case STATUS_USER_LOGIN_TOENT_FAIL:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_USER_LOGIN_TOENT_FAIL));
+                break;
+            case STATUS_USER_LOGIN_FAIL:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_USER_LOGIN_FAIL));
+                break;
+            case STATUS_USER_LOGIN_LOCK:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_USER_LOGIN_LOCK));
+                break;
+            case STATUS_USER_AVATAR_FAIL:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_USER_AVATAR_FAIL));
+                break;
+            case STATUS_SYS_VERSION_CODE_FAIL:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_SYS_VERSION_CODE_FAIL));
+                break;
+            case STATUS_SYS_VERSION_NO:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_SYS_VERSION_NO));
+                break;
+            case STATUS_DEVICE_SUBMIT_FAIL:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_DEVICE_SUBMIT_FAIL));
+                break;
+            case STATUS_DEVICE_GET:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_DEVICE_GET));
+                break;
+            case STATUS_DEVICE_REPORT_NO:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_DEVICE_REPORT_NO));
+                break;
+            case STATUS_DEVICE_REPORT_NO_DATA:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_DEVICE_REPORT_NO_DATA));
+                break;
+            case STATUS_BOUND_DEVICE_TYPE_FAIL:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_BOUND_DEVICE_TYPE_FAIL));
+                break;
+            case STATUS_BOUND_DEVICE_MAC_FAIL:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_UNBOUND_DEVICE_MAC_FAIL));
+                break;
+            case STATUS_BOUND_DEVICE_REPEAT:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_BOUND_DEVICE_REPEAT));
+                break;
+            case STATUS_BOUND_DEVICE_FAIL:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_BOUND_DEVICE_FAIL));
+                break;
+            case STATUS_UNBOUND_DEVICE_TYPE_FAIL:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_UNBOUND_DEVICE_TYPE_FAIL));
+                break;
+            case STATUS_UNBOUND_DEVICE_MAC_FAIL:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_UNBOUND_DEVICE_MAC_FAIL));
+                break;
+            case STATUS_UNBOUND_DEVICE_FAIL:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_UNBOUND_DEVICE_FAIL));
+                break;
+            case STATUS_FRIEND_ADD_MY:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_FRIEND_ADD_MY));
+                break;
+            case STATUS_FRIEND_ADD_FAIL:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_FRIEND_ADD_FAIL));
+                break;
+            case STATUS_SMSCODE_ERROR:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_SMSCODE_ERROR));
+                break;
+            case STATUS_SYSTEM_PARAM_ERROR:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_SYSTEM_PARAM_ERROR));
+                break;
+            case STATUS_NO_USER:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_NO_USER));
+                break;
+            case STATUS_SIGN_ERROR:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_SIGN_ERROR));
+                loginOut(context);
+                break;
+            case STATUS_BEYOND_TIMES:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_BEYOND_TIMES));
+                break;
+            case STATUS_TOO_FAST:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_TOO_FAST));
+                break;
+            case STATUS_FAIL:
+                if (successIsShow) {
+                    ToastUtil.showShortToast(context, context.getString(R.string.STATUS_FAIL));
+                }
+                break;
+            case STATUS_USER_REGISTERED:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_USER_REGISTERED));
+                break;
+            case STATUS_PASSWORD_EMPTY:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_PASSWORD_EMPTY));
+                break;
+            case STATUS_UPLOAD_ERROR:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_UPLOAD_ERROR));
+                break;
+            case STATUS_PASSWORD_ERROR:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_PASSWORD_ERROR));
+                break;
+            case STATUS_USER_EXIST:
+                ToastUtil.showShortToast(context, context.getString(R.string.STATUS_USER_EXIST));
+                break;
+            default:
+                ToastUtil.showShortToast(context, response.getInfo());
+                break;
+
+        }
+        return response.getStatus();
+    }
+
+
+    /**
+     * post请求.
+     *
+     * @return 返回服务器响应信息或本地错误信息.
+     * @author paladin.
+     * @date 2016/3/17 17:50
+     */
+    protected ResponseBean uploapFile(HashMap<String, String> params, HashMap<String, File> files) {
+        LogUtil.logDebugMessage("address = " + SERVER_API + "; params = " + params.toString() + ";");
+        ResponseBean response = null;
+        String result = null;
+        try {
+            result = net.sendMultyPartRequest(SERVER_API, params, files);
+            response = (ResponseBean) BaseBean.parsingJsonObject(new JSONObject(result), ResponseBean.class);
+        } catch (IOException e) {
+            if (null == response) {
+                response = new ResponseBean();
+            }
+            response.setStatus(STATUS_IO_EXCEPTION);
+            response.setInfo(TApplication.CONTEXT.getString(R.string.error_io_exception));
+        } catch (JSONException e) {
+            if (null == response) {
+                response = new ResponseBean();
+                response.setStatus(STATUS_IO_EXCEPTION);
+                response.setInfo(TApplication.CONTEXT.getString(R.string.error_io_exception));
+            }
+        }
+        return response;
+    }
+
+
+    /**
+     * 服务器地址(测试).
+     */
+    public static final String SERVER_PATH = "http://health.tentinet.com/";
+    // public static final String SERVER_PATH = "http://10.10.5.61/";
+    /**
+     * API地址.
+     */
+    private final String SERVER_API = SERVER_PATH + "Router/Rest";
+
+
+    private final String KEY_APP_KEY = "app_key";
+    private final String KEY_METHOD = "method";
+    private final String KEY_VERSION = "v";
+    private final String KEY_SECRET = "secret";
+    private final String KEY_TOKEN = "token";
+    protected final String KEY_SIGN = "sign";
+    protected final String KEY_PAGE = "p";
+    protected final String KEY_ROWS = "20";
+    protected final String KEY_COUNT = "rows";
+    private final String APP_KEY = "10";
+    private final String VERSION = "1.0";
+    private final String SECRET = "^^R%$jsdf1231*AKD&602Llsafdasf$#~dfsgsdf93764532O0";
+
+    /**
+     * 超时时间.
+     */
+    private final int TIME_OUT = 10000;
+    /**
+     * 相应成功状态.
+     */
+    public final static int STATUS_SUCCESS = 1;
+    /**
+     * 数据异常.(本地状态)
+     */
+    private final int STATUS_IO_EXCEPTION = -1;
+    /**
+     * 响应超时.(本地状态)
+     */
+    private final int STATUS_TIME_OUT = -2;
+
+
+    /**
+     * 状态码  用户  验证码  手机号不能为空 user.getVCode0
+     */
+    private final static int STATUS_USER_CODE = 10100;
+    /**
+     * 状态码 用户 提交验证码 创建记录失败  user.verifyMoblie
+     */
+    private final static int STATUS_USER_SUBMIT_CODE = 10101;
+    /**
+     * 状态码 用户 注册 参数不能为空 user.register
+     */
+    private final static int STATUS_USER_REGISTER = 10102;
+
+    /**
+     * 状态码 用户 登录 手机号不能为空  user.login
+     */
+    private final static int STATUS_USER_LOGIN_PHONE_EMPTY = 10200;
+
+
+    /**
+     * 状态码 用户 登录 密码不能为空 user.login
+     */
+    private final static int STATUS_USER_LOGIN_PWD_EMPTY = 10201;
+
+    /**
+     * 状态码 用户 登录 账号已被锁定 user.login
+     */
+    private final static int STATUS_USER_LOGIN_LOCK = 10202;
+
+    /**
+     * 状态码 用户 登录 票据生成失败 user.login
+     */
+    private final static int STATUS_USER_LOGIN_TOENT_FAIL = 10203;
+
+    /**
+     * 状态码 用户 登录 账号密码错误 user.login
+     */
+    private final static int STATUS_USER_LOGIN_FAIL = 10204;
+
+    /**
+     * 状态码 用户 登录 登录成功 user.login
+     */
+    private final static int STATUS_USER_LOGIN_SUCCEED = 1;
+
+
+    /**
+     * 状态码 用户 图像 头像设置成功  user.avatar.set
+     */
+    private final static int STATUS_USER_AVATAR_SUCCEED = 1;
+
+    /**
+     * 状态码 用户 图像 头像设置失败 user.avatar.set
+     */
+    private final static int STATUS_USER_AVATAR_FAIL = 10205;
+
+
+    /**
+     * 状态码 系统 版本 版本编码错误 app.version.check
+     */
+    private final static int STATUS_SYS_VERSION_CODE_FAIL = 10300;
+
+    /**
+     * 状态码 系统 版本 没有新版本 app.version.check
+     */
+    private final static int STATUS_SYS_VERSION_NO = 10301;
+
+    /**
+     * 状态码 设备 设备数据提交 新建用户设备失败  user.device.data.save
+     */
+    private final static int STATUS_DEVICE_SUBMIT_FAIL = 10400;
+
+    /**
+     * 状态码 设备 获取设备数据 未找到指定设备 user.device.data.list.get
+     */
+    private final static int STATUS_DEVICE_GET = 10401;
+
+    /**
+     * 状态码 设备 健康评估 无法定位设备 user.device.data.report
+     */
+    private final static int STATUS_DEVICE_REPORT_NO = 10402;
+
+    /**
+     * 状态码 设备 健康评估 无法定位设备 user.device.data.report
+     */
+    private final static int STATUS_DEVICE_REPORT_NO_DATA = 10403;
+
+    /**
+     * 状态码 设备 健康评估 健康评估报告 user.device.data.report
+     */
+    private final static int STATUS_DEVICE_REPORT_SUCCEED = 1;
+
+
+    /**
+     * 状态码 设备 绑定设备 设备类型错误 user.device.bound
+     */
+    private final static int STATUS_BOUND_DEVICE_TYPE_FAIL = 10404;
+
+    /**
+     * 状态码 设备 绑定设备 无效设备MAC地址 user.device.bound
+     */
+    private final static int STATUS_BOUND_DEVICE_MAC_FAIL = 10405;
+
+    /**
+     * 状态码 设备 绑定设备 已绑定该类设备 user.device.bound
+     */
+    private final static int STATUS_BOUND_DEVICE_REPEAT = 10406;
+
+    /**
+     * 状态码 设备 绑定设备 设备绑定失败 user.device.bound
+     */
+    private final static int STATUS_BOUND_DEVICE_FAIL = 10407;
+
+
+    /**
+     * 状态码 设备 解除绑定设备 设备类型错误 user.device.unbound
+     */
+    private final static int STATUS_UNBOUND_DEVICE_TYPE_FAIL = 10408;
+
+
+    /**
+     * 状态码 设备 解除绑定设备 无效设备MAC地址 user.device.unbound
+     */
+    private final static int STATUS_UNBOUND_DEVICE_MAC_FAIL = 10409;
+
+    /**
+     * 状态码 设备 解除绑定设备 解除绑定失败 user.device.unbound
+     */
+    private final static int STATUS_UNBOUND_DEVICE_FAIL = 10410;
+
+
+    /**
+     * 状态码 好友 添加 手机号不能为空 user.friend.add
+     */
+    private final static int STATUS_FRIEND_ADD_PHONE_EMPTY = 10500;
+
+    /**
+     * 状态码 好友 添加 不能添加自己 user.friend.add
+     */
+    private final static int STATUS_FRIEND_ADD_MY = 10501;
+
+    /**
+     * 状态码 好友 添加 好友添加失败 user.friend.add
+     */
+    private final static int STATUS_FRIEND_ADD_FAIL = 10502;
+
+    /**
+     * 状态码 短信验证码错误
+     */
+    private final static int STATUS_SMSCODE_ERROR = 11008;
+
+    /**
+     * 状态码 系统参数错误
+     */
+    private final static int STATUS_SYSTEM_PARAM_ERROR = 11000;
+
+    /**
+     * 状态码 没找到这个用户
+     */
+    private final static int STATUS_NO_USER = 11001;
+
+    /**
+     * 状态码 签名错误
+     */
+    public final static int STATUS_SIGN_ERROR = 11002;
+
+
+    /**
+     * 状态码 超出次数限制
+     */
+    private final static int STATUS_BEYOND_TIMES = 11003;
+
+    /**
+     * 状态码 操作频繁
+     */
+    private final static int STATUS_TOO_FAST = 11004;
+
+    /**
+     * 状态码 操作失败
+     */
+    private final static int STATUS_FAIL = 0;
+
+    /**
+     * 状态码 已注册
+     */
+    private final static int STATUS_USER_REGISTERED = 11005;
+
+    /**
+     * 状态码 密码不能为空
+     */
+    private final static int STATUS_PASSWORD_EMPTY = 11006;
+
+    /**
+     * 状态码 上传错误
+     */
+    private final static int STATUS_UPLOAD_ERROR = 11007;
+
+    /**
+     * 状态码 密码错误
+     */
+    private final static int STATUS_PASSWORD_ERROR = 11009;
+
+    /**
+     * 状态码 该用户名已被占用
+     */
+    private final static int STATUS_USER_EXIST = 11010;
+
+
+    private static void loginOut(final Context context) {
+        CustomDialog.dismissDialog();
+        CustomDialog.showOkAndCalcelDialog(context, context.getString(R.string.logout), context.getString(R.string.atuo_logout), true, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CustomDialog.dismissDialog();
+                //发送退出广播
+                Intent intent = new Intent();
+                intent.setAction(STATUS_SIGN_ERROR + "");
+                context.sendBroadcast(intent);
+                if (!((Activity) context instanceof MainActivity)) {
+                    ((Activity) context).finish();
+                }
+            }
+        }, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CustomDialog.dismissDialog();
+            }
+        });
+    }
+
+}

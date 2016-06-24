@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.tentinet.healthy.view.TitleView
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/txt_heat_check"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/view_title"
+        android:background="@drawable/temp_shape_btn"
+        android:gravity="center"
+        android:text="选择设备"
+        android:textSize="@dimen/dp_18"
+        android:layout_centerHorizontal="true"
+        />
+
+
+    <LinearLayout
+
+        android:id="@+id/lin_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txt_heat_alter"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/temp_shape_btn"
+            android:gravity="center"
+            android:textSize="@dimen/dp_18"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_70"
+            android:padding="@dimen/padding_default"
+            android:text="@string/hightemp_msg"
+            android:textColor="@color/font_color_default"
+            android:textSize="@dimen/dp_18" />
+
+        <TextView
+            android:id="@+id/txt_temp_current"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_default"
+            android:textColor="@color/font_color_green_default"
+            android:textSize="@dimen/dp_18" />
+
+        <TextView
+            android:id="@+id/txt_temp_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_default"
+            android:textColor="@color/red"
+            android:textSize="@dimen/dp_18" />
+
+        <TextView
+            android:id="@+id/txt_temp_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_default"
+            android:textColor="@color/font_color_green_default"
+            android:textSize="@dimen/dp_18" />
+
+
+    </LinearLayout>
+
+    <com.tentinet.healthy.widget.PageLoadIng
+        android:id="@+id/page_load"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/view_title"
+      ></com.tentinet.healthy.widget.PageLoadIng>
+
+    <Button
+        android:id="@+id/btn_connect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_title"
+        android:layout_margin="@dimen/dp_20"
+        android:layout_marginTop="@dimen/margin_default_for_horizontal"
+        android:background="@drawable/login_btn_selector"
+        android:text="@string/connect_conectdevice"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_size_big"
+        android:visibility="gone" />
+</RelativeLayout>

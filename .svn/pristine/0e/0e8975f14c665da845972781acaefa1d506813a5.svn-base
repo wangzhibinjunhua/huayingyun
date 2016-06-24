@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/txt_mine_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:padding="@dimen/dp_18"
+            android:text="@string/dialog_check_suger_emptiness"
+            android:textColor="@color/font_color_default"
+            android:textSize="@dimen/font_size_default" />
+
+        <ImageView
+            android:id="@+id/iv_mine_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/padding_default_for_horizontal"
+            android:src="@mipmap/icon_check" />
+    </LinearLayout>
+
+    <View style="@style/line_horizontal" />
+</LinearLayout>

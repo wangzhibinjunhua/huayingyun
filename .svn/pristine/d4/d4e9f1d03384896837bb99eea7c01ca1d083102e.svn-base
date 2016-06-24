@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.tentinet.healthy.view.TitleView
+
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="@string/login_logo_name"
+        android:textColor="@color/login_logo_name"
+        android:textSize="@dimen/dp_50" />
+
+    <LinearLayout
+        android:id="@+id/lin_login_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/margin_default_for_horizontal"
+        android:paddingRight="@dimen/margin_default_for_horizontal">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <com.tentinet.healthy.widget.EditInputBox
+                android:id="@+id/edit_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:editbg="@color/transparent"
+                app:inputHint="@string/login_hint_username"
+                app:inputHintColor="@color/login_hite"
+                app:textColor="@color/font_color_default"
+                app:textSize="@dimen/dp_18"
+                >
+
+            </com.tentinet.healthy.widget.EditInputBox>
+
+            <View
+                style="@style/line_horizontal_black"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height"
+                android:layout_below="@id/edit_account" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
+                android:id="@+id/check_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:visibility="gone" />
+
+
+            <com.tentinet.healthy.widget.EditInputBox
+                android:id="@+id/edit_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:editbg="@color/transparent"
+                app:inputHint="@string/login_hint_pwd"
+                app:inputHintColor="@color/login_hite"
+                app:textColor="@color/font_color_default"
+                app:inputIsPWd="true"
+                app:textSize="@dimen/dp_18"
+
+                >
+            </com.tentinet.healthy.widget.EditInputBox>
+
+            <ImageView
+                android:id="@+id/iv_password_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/edit_password"
+                android:layout_alignParentRight="true"
+                android:paddingBottom="@dimen/padding_default_for_horizontal"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/padding_default"
+                android:src="@mipmap/login_content_btn_password_pressed" />
+
+            <View
+                style="@style/line_horizontal_black"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height"
+                android:layout_below="@id/edit_password">
+
+
+            </View>
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_default_for_horizontal"
+            android:background="@drawable/login_btn_selector"
+            android:text="@string/login"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_size_big"
+
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_forget_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/margin_default_for_horizontal"
+                android:text="@string/forget_password"
+                android:textColor="@color/font_color_green_default"
+                android:textSize="@dimen/font_size_small" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/register_btn_selector"
+            android:padding="@dimen/padding_default_for_horizontal"
+            android:text="@string/register_now"
+            android:textColor="@color/font_color_green_default"
+            android:textSize="@dimen/font_size_small" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_20" />
+
+    </LinearLayout>
+</RelativeLayout>

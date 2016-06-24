@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.tentinet.healthy.view.TitleView
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_update_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/font_color_default"
+                    android:textSize="@dimen/dp_18" />
+
+                <TextView
+                    android:id="@+id/txt_update_name_val"
+                    style="@style/UpdateMineInfoTxt" />
+            </LinearLayout>
+
+            <View style="@style/line_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_update_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/font_color_default"
+                    android:textSize="@dimen/dp_18" />
+
+                <TextView
+                    android:id="@+id/txt_update_sex_val"
+                    style="@style/UpdateMineInfoTxt" />
+            </LinearLayout>
+
+            <View style="@style/line_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_update_nation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/font_color_default"
+                    android:textSize="@dimen/dp_18" />
+
+                <TextView
+                    android:id="@+id/txt_update_nation_val"
+                    style="@style/UpdateMineInfoTxt" />
+            </LinearLayout>
+
+            <View style="@style/line_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_update_bir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/font_color_default"
+                    android:textSize="@dimen/dp_18" />
+
+                <TextView
+                    android:id="@+id/txt_update_bir_val"
+                    style="@style/UpdateMineInfoTxt" />
+            </LinearLayout>
+
+            <View style="@style/line_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_update_edu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/font_color_default"
+                    android:textSize="@dimen/dp_18" />
+
+                <TextView
+                    android:id="@+id/txt_update_edu_val"
+                    style="@style/UpdateMineInfoTxt" />
+            </LinearLayout>
+
+            <View style="@style/line_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_update_mar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/font_color_default"
+                    android:textSize="@dimen/dp_18" />
+
+                <TextView
+                    android:id="@+id/txt_update_mar_val"
+                    style="@style/UpdateMineInfoTxt" />
+            </LinearLayout>
+
+            <View style="@style/line_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_update_pro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/font_color_default"
+                    android:textSize="@dimen/dp_18" />
+
+                <TextView
+                    android:id="@+id/txt_update_pro_val"
+                    style="@style/UpdateMineInfoTxt" />
+            </LinearLayout>
+
+            <View style="@style/line_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_update_certtype"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/font_color_default"
+                    android:textSize="@dimen/dp_18" />
+
+                <TextView
+                    android:id="@+id/txt_update_certtype_val"
+                    style="@style/UpdateMineInfoTxt" />
+            </LinearLayout>
+
+            <View style="@style/line_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_update_certtnum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/font_color_default"
+                    android:textSize="@dimen/dp_18" />
+
+                <TextView
+                    android:id="@+id/txt_update_certtnum_val"
+                    style="@style/UpdateMineInfoTxt" />
+            </LinearLayout>
+
+            <View style="@style/line_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_update_soc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/font_color_default"
+                    android:textSize="@dimen/dp_18" />
+
+                <TextView
+                    android:id="@+id/txt_update_soc_val"
+                    style="@style/UpdateMineInfoTxt"
+
+                    />
+            </LinearLayout>
+
+            <View style="@style/line_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_update_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/font_color_default"
+                    android:textSize="@dimen/dp_18" />
+
+                <TextView
+                    android:id="@+id/txt_update_address_val"
+                    style="@style/UpdateMineInfoTxt" />
+            </LinearLayout>
+
+            <View style="@style/line_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_update_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/activity_horizontal_margin"
+                        android:textColor="@color/font_color_default"
+                        android:textSize="@dimen/dp_18" />
+
+                    <TextView
+                        android:id="@+id/txt_update_phone_val"
+                        style="@style/UpdateMineInfoTxt" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/txt_update_phone_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mine_phone_msg"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    />
+            </LinearLayout>
+
+            <View style="@style/line_horizontal" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ecg_measureres">
+        <item>No irregularity found.</item>
+        <item>Suspected a little fast beat.</item>
+        <item>Suspected fast beat.</item>
+        <item>Suspected short run of fast beat.</item>
+        <item>Suspected a little slow beat.</item>
+        <item>Suspected slow beat.</item>
+        <item>Suspected occasional short beat interval.</item>
+        <item>Suspected irregular beat interval.</item>
+        <item>Suspected fast beat with short beat interval.</item>
+        <item>Suspected slow beat with short beat interval.</item>
+        <item>Suspected slow beat with irregular beat interval.</item>
+        <item>Waveform baseline wander.Measure again.</item>
+        <item>Suspected fast beat with baseline wander.</item>
+        <item>Suspected slow beat with baseline wander.</item>
+        <item>Suspected occasional short beat interval with baseline wander.</item>
+        <item>Suspected irregular beat interval with baseline wander.</item>
+        <item>Poor signal, Measure again.</item>
+        <item>The results of the analysis error</item>
+    </string-array>
+    <declare-styleable name="PullToRefreshListView">
+        <attr name="android:dividerHeight" />
+        <attr name="android:divider" />
+    </declare-styleable>
+    <string-array name="sex_array">
+        <item>Female</item>
+        <item>Male</item>
+        <item>Unknown</item>
+    </string-array>
+
+    <string-array name="edu_array">
+        <item>Primary school</item>
+        <item>Junior high school</item>
+        <item>Secondary\/High School</item>
+        <item>Specialist</item>
+        <item>Undergraduate course</item>
+        <item>Master</item>
+        <item>Doctoral candidate</item>
+        <item>Post-doctoral</item>
+    </string-array>
+    <string-array name="mar_array">
+        <item>Unmarried</item>
+        <item>Married</item>
+        <item>Divorced</item>
+        <item>Widowed</item>
+    </string-array>
+
+    <string-array name="curt_array">
+        <item>ID card</item>
+        <item>Residence permit</item>
+        <item>Visa</item>
+        <item>Passport</item>
+        <item>Account of the</item>
+        <item>Military card</item>
+        <item>Member card</item>
+        <item>Party card</item>
+        <item>Hong Kong-Macau laissez-passer</item>
+    </string-array>
+
+    <string-array name="old_name_array">
+        <item>中老年妈妈装</item>
+        <item>千百怡</item>
+        <item>世纪缘</item>
+        <item>薇诗琪</item>
+        <item>麦子熟了</item>
+        <item>顿堡奴</item>
+        <item>俞兆林章镇</item>
+        <item>豹比罗</item>
+        <item>卡伊芙</item>
+        <item>刺桐树</item>
+    </string-array>
+    <string-array name="old_name_val_array">
+        <item>http://www.ydt168.com/</item>
+        <item>https://qianbaiyilian.tmall.com</item>
+        <item>https://shop69385370.taobao.com</item>
+        <item>https://weishiqi.tmall.com/</item>
+        <item>https://mzslzyd.taobao.com</item>
+        <item>https://detail.tmall.com</item>
+        <item>https://yuzhaolinzz.tmall.com</item>
+        <item>https://baebislloog.tmall.com/</item>
+        <item>http://kayifu.jd.com/</item>
+        <item>http://mall.jd.com/index-63341.html</item>
+    </string-array>
+    <string-array name="food_name_array">
+        <item>健康100</item>
+        <item>中国保健食品网</item>
+        <item>39健康网</item>
+        <item>保健食品网</item>
+        <item>中国绿色食品网</item>
+        <item>中国食品网</item>
+        <item>食品添加剂市场网</item>
+        <item>食品商务网</item>
+        <item>康闻网</item>
+        <item>中国食品饮料网</item>
+        <item>汤臣倍健网</item>
+    </string-array>
+    <string-array name="food_name_val_array">
+        <item>http://www.jiank100.com/</item>
+        <item>http://www.zgbjspw.roboo.com/</item>
+        <item>http://www.39.net/</item>
+        <item>http://10735.zw101.com/</item>
+        <item>http://www.zhongguolsspw.roboo.com/</item>
+        <item>http://www.chinafood365.com/</item>
+        <item>http://www.fam365.com/</item>
+        <item>http://www.21food.cn/</item>
+        <item>http://www.wenkang.cn/</item>
+        <item>http://www.40777.cn/</item>
+        <item>http://www.by-health.com/</item>
+    </string-array>
+
+
+    <string-array name="home_name_array">
+        <item>无忧保姆</item>
+        <item>云家政</item>
+        <item>阿姨帮</item>
+        <item>爱家家政</item>
+        <item>三鼎家政</item>
+        <item>牛家帮</item>
+        <item>天天家政</item>
+        <item>地球天使家政</item>
+        <item>e家政</item>
+        <item>保姆大本营</item>
+    </string-array>
+    <string-array name="home_name_val_array">
+        <item>http://www.51baomu.cn/</item>
+        <item>http://www.yunjiazheng.com/</item>
+        <item>http://www.ayibang.com/</item>
+        <item>http://www.ijjz.cn</item>
+        <item>http://www.sdclean.com/</item>
+        <item>http://www.niuhome.com/</item>
+        <item>http://tiantianma.jdzj.com/</item>
+        <item>http://www.diqiu8888.com/</item>
+        <item>http://www.51ejz.com/</item>
+        <item>http://bm.haobangni.com/</item>
+    </string-array>
+
+    <string-array name="trip_name_array">
+        <item>12306</item>
+        <item>去哪儿</item>
+        <item>携程</item>
+        <item>中国票务网</item>
+        <item>中国南方航空</item>
+        <item>中国国际航空</item>
+        <item>中国东方航空</item>
+        <item>海南航空</item>
+        <item>深圳航空</item>
+        <item>厦门航空</item>
+    </string-array>
+    <string-array name="trip_name_val_array">
+        <item>http://www.12306.cn/mormhweb/</item>
+        <item>http://www.ctrip.com</item>
+        <item>http://www.piao.com/</item>
+        <item>http://www.ijjz.cn</item>
+        <item>http://www.csair.com</item>
+        <item>http://www.airchina.com.cn/</item>
+        <item>http://www.ceair.com/</item>
+        <item>http://www.hnair.com/</item>
+        <item>http://www.shenzhenair.com/</item>
+        <item>http://www.xiamenair.com</item>
+    </string-array>
+
+
+    <string-array name="travel_name_array">
+        <item>中国国旅</item>
+        <item>途牛网</item>
+        <item>花游国旅</item>
+        <item>中青旅</item>
+        <item>中国总旅</item>
+        <item>众信旅游</item>
+        <item>凯撒旅游</item>
+        <item>经典假期</item>
+        <item>旅游百事通</item>
+        <item>同程旅游</item>
+        <item>穷游网</item>
+    </string-array>
+    <string-array name="travel_name_val_array">
+        <item>http://www.szcits.cn/</item>
+        <item>http://www.tuniu.com/</item>
+        <item>http://www.u26.com.cn/</item>
+        <item>http://www.cytsonline.com/</item>
+        <item>http://www.ctsho.com/</item>
+        <item>http://sh.uzai.com/</item>
+        <item>http://www.caissa.com.cn/</item>
+        <item>http://www.chts.com.cn/</item>
+        <item>http://www.517best.com/</item>
+        <item>http://www.ly.com/</item>
+        <item>http://www.qyer.com/</item>
+    </string-array>
+
+    <string-array name="medical_name_array">
+        <item>160挂号</item>
+        <item>北京国际医疗</item>
+        <item>医疗服务网</item>
+        <item>北京市预约挂号统一平台</item>
+        <item>微医</item>
+        <item>12320挂号网</item>
+        <item>医程通</item>
+        <item>医护网</item>
+        <item>名医汇</item>
+        <item>健康搜</item>
+        <item>医指通</item>
+    </string-array>
+    <string-array name="medical_name_val_array">
+        <item>http://www.91160.com/</item>
+        <item>http://www.bimc-china.com/</item>
+        <item>http://www.ylfww.com/</item>
+        <item>http://www.bjguahao.gov.cn/index.htm</item>
+        <item>http://www.guahao.com/</item>
+        <item>http://www.szws.net/</item>
+        <item>http://www.968309.com/</item>
+        <item>http://www.yihu.com/</item>
+        <item>http://www.mingyihui.net/</item>
+        <item>http://www.114gh.cn/</item>
+        <item>http://www.eztcn.com</item>
+    </string-array>
+    <string-array name="call_name_array">
+        <item>匪警</item>
+        <item>火警</item>
+        <item>急救中心</item>
+        <item>交通事故告警</item>
+        <item>查号台</item>
+    </string-array>
+    <string-array name="call_name_val_array">
+        <item>110</item>
+        <item>119</item>
+        <item>120</item>
+        <item>122</item>
+        <item>114</item>
+    </string-array>
+</resources>

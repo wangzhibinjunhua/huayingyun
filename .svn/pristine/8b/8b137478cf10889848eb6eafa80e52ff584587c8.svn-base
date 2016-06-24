@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/register_bg"
+    android:orientation="vertical">
+
+    <com.tentinet.healthy.view.TitleView
+        android:id="@+id/advice_view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp_30"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:background="@color/line_default"
+           />
+
+        <EditText
+            android:id="@+id/edit_advice_content"
+            android:gravity="top|left"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@null"
+            android:hint="@string/hite_advice_feedback"
+            android:padding="@dimen/padding_default"
+            android:maxLength="400"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/padding_default_for_horizontal"
+            android:gravity="right"
+            android:paddingBottom="@dimen/padding_default"
+            android:text="500" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:background="@color/line_default" />
+
+        <Button
+            android:layout_margin="@dimen/dp_20"
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_default_for_horizontal"
+            android:background="@drawable/login_btn_selector"
+            android:text="@string/advice_feedback_submit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_size_big"
+
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
